@@ -1,0 +1,197 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/simulation/modelsim
+vFetch_Stage_tb
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1720042668
+!i10b 1
+!s100 6_K3;h02C@`i@T@mm9XSd2
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I9Di>CVDzcCZzc^6Mj0SgI2
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1720042600
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv
+!i122 6
+L0 2 65
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1720042668.000000
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv|
+!i113 1
+Z7 o-sv -work work
+!s92 -sv -work work {+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches}
+Z8 tCvgOpt 0
+n@fetch_@stage_tb
+vFetchDecode_register
+R1
+R2
+!i10b 1
+!s100 FA5c2hLBA2oQzdDU>T?7A1
+R3
+IQC67cEiF]Fee_S902G4F22
+R4
+S1
+R0
+w1720033276
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/FetchDecode_register.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/FetchDecode_register.sv
+!i122 4
+Z9 L0 1 23
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/FetchDecode_register.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/FetchDecode_register.sv|
+!i113 1
+R7
+Z10 !s92 -sv -work work {+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU}
+R8
+n@fetch@decode_register
+vmux_2inputs
+R1
+Z11 !s110 1720042667
+!i10b 1
+!s100 O[D_:@VJMQjVAlF;61POP2
+R3
+IEiCIZa0H;mn>USQGLVVJ[2
+R4
+S1
+R0
+w1720032490
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/mux_2inputs.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/mux_2inputs.sv
+!i122 1
+Z12 L0 1 9
+R5
+r1
+!s85 0
+31
+Z13 !s108 1720042667.000000
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/mux_2inputs.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/mux_2inputs.sv|
+!i113 1
+R7
+R10
+R8
+vPC_adder
+R1
+R11
+!i10b 1
+!s100 fVK_<aaJe0jcd6=QJM5Oa0
+R3
+IhgVOM>[RcJ55?P9Ie^?F60
+R4
+S1
+R0
+w1720032502
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_adder.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_adder.sv
+!i122 2
+R12
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_adder.sv|
+!i113 1
+R7
+R10
+R8
+n@p@c_adder
+vPC_register
+R1
+R2
+!i10b 1
+!s100 T;aP5KESL2M_WcMa@^HZe1
+R3
+IMG1SQ;^L]7ooeT38<JeCP2
+R4
+S1
+R0
+w1720032518
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_register.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_register.sv
+!i122 3
+R9
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_register.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_register.sv|
+!i113 1
+R7
+R10
+R8
+n@p@c_register
+vProcessor
+R1
+R2
+!i10b 1
+!s100 zc9Ve;@4NlTQ]0eM7jDhA0
+R3
+IAnN8zLSh9jK1OED4BZknE0
+R4
+S1
+R0
+w1720033303
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Processor.sv
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Processor.sv
+!i122 5
+L0 1 53
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Processor.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Processor.sv|
+!i113 1
+R7
+R10
+R8
+n@processor
+vROM
+R11
+!i10b 1
+!s100 <9Ta?TB]1IPDYCWgEZKBZ2
+R3
+IC7FBOOfJRUg6P=>F<bR;S2
+R4
+R0
+w1720034675
+8C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory/ROM.v
+FC:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory/ROM.v
+!i122 0
+L0 40 61
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory/ROM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory|C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory/ROM.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work {+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory}
+R8
+n@r@o@m

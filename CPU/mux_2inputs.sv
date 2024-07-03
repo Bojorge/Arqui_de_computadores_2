@@ -1,0 +1,9 @@
+module mux_2inputs (
+	input logic [15:0] data0, data1,
+	input logic select,
+	output logic [15:0] out
+);
+
+	assign out = select ? data1 : data0;
+
+endmodule

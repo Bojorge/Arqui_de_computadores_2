@@ -1,0 +1,23 @@
+module PC_register (
+				input logic clk, 
+				input logic reset,
+				input logic [15:0] address_in,
+				output logic [15:0] address_out
+);
+
+    // Registro de almacenamiento de 16 bits
+    logic [15:0] out = 0;
+
+    // Proceso de escritura en el registro
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            out <= '0; // Inicializar el registro en 0 cuando se active el reset
+        end else begin
+            out <= address_in;
+        end
+    end
+
+    // Salida del registro
+    assign address_out = out;
+
+endmodule

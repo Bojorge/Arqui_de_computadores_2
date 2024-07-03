@@ -1,0 +1,112 @@
+# Reading pref.tcl
+# do Processor_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU/Memory {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory/ROM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:47 on Jul 03,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Memory/ROM.v 
+# -- Compiling module ROM
+# 
+# Top level modules:
+# 	ROM
+# End time: 15:37:47 on Jul 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/mux_2inputs.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:47 on Jul 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/mux_2inputs.sv 
+# -- Compiling module mux_2inputs
+# 
+# Top level modules:
+# 	mux_2inputs
+# End time: 15:37:47 on Jul 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_adder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:47 on Jul 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_adder.sv 
+# -- Compiling module PC_adder
+# 
+# Top level modules:
+# 	PC_adder
+# End time: 15:37:47 on Jul 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_register.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:47 on Jul 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/PC_register.sv 
+# -- Compiling module PC_register
+# 
+# Top level modules:
+# 	PC_register
+# End time: 15:37:48 on Jul 03,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/FetchDecode_register.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:48 on Jul 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/FetchDecode_register.sv 
+# -- Compiling module FetchDecode_register
+# 
+# Top level modules:
+# 	FetchDecode_register
+# End time: 15:37:48 on Jul 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Processor.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:48 on Jul 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Processor.sv 
+# -- Compiling module Processor
+# 
+# Top level modules:
+# 	Processor
+# End time: 15:37:48 on Jul 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/Manuel/Documents/TEC/Arqui\ 2/Arqui_de_computadores_2/CPU/Testbenches {C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:37:48 on Jul 03,2024
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches" C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv 
+# -- Compiling module Fetch_Stage_tb
+# 
+# Top level modules:
+# 	Fetch_Stage_tb
+# End time: 15:37:48 on Jul 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  Fetch_Stage_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" Fetch_Stage_tb 
+# Start time: 15:37:48 on Jul 03,2024
+# Loading sv_std.std
+# Loading work.Fetch_Stage_tb
+# Loading work.PC_register
+# Loading work.PC_adder
+# Loading work.mux_2inputs
+# Loading work.ROM
+# Loading altera_mf_ver.altsyncram
+# Loading work.FetchDecode_register
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $finish    : C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv(63)
+#    Time: 100 ps  Iteration: 0  Instance: /Fetch_Stage_tb
+# 1
+# Break in Module Fetch_Stage_tb at C:/Users/Manuel/Documents/TEC/Arqui 2/Arqui_de_computadores_2/CPU/Testbenches/Fetch_Stage_tb.sv line 63
+# Can't move the Now cursor.
+# End time: 15:46:01 on Jul 03,2024, Elapsed time: 0:08:13
+# Errors: 0, Warnings: 0
