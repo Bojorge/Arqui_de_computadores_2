@@ -1,0 +1,4 @@
+module hazard_detection_unit(
+	input logic {3:0} rd_load_execute;
+	input logic 
+)

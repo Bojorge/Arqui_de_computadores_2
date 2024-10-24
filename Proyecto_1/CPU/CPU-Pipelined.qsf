@@ -1,0 +1,183 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2018  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+# Date created = 17:49:12  August 07, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		CPU-Pipelined_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:49:12  AUGUST 07, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
+set_global_assignment -name BOARD "DE1-SoC Board"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH encrypt_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME Fetch_Stage_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Fetch_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Fetch_Stage_tb -section_id Fetch_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME ROM_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ROM_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ROM_tb -section_id ROM_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME Add_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Add_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Add_tb -section_id Add_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME cpu_top_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id cpu_top_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME cpu_top_tb -section_id cpu_top_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_NAME shiftRows_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id shiftRows_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME shiftRows_tb -section_id shiftRows_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME Decode_Stage_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Decode_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Decode_Stage_tb -section_id Decode_Stage_tb
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Decode_Stage_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/subBytes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Fetch_Stage_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/cpu_top_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/shiftRows.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/sbox_rom_comb_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/sbox_rom_comb.sv
+set_global_assignment -name VERILOG_FILE core/sbox_rom.v
+set_global_assignment -name SYSTEMVERILOG_FILE core/roundKey.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/rotWord.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/Rcon.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/mixColumns.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/AddRoundKey.sv
+set_global_assignment -name SYSTEMVERILOG_FILE top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/zeroExtend.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/signExtend.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/Regfile_vector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/Regfile_scalar.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/PC_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/MemoryWriteback_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/MemoryLoader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/hazard_detection_unit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/forwarding_unit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/FetchDecode_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/ExecuteMemory_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/DecodeExecute_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/controlUnit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/comparator_branch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/ALU.sv
+set_global_assignment -name QIP_FILE memory/ROM.qip
+set_global_assignment -name SOURCE_FILE memory/ROM.cmp
+set_global_assignment -name QIP_FILE memory/RAM.qip
+set_global_assignment -name SOURCE_FILE memory/RAM.cmp
+set_global_assignment -name SYSTEMVERILOG_FILE "core/CPU-Pipelined.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE core/adder_16.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/adder_8bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/mux_2inputs_16bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/mux_2inputs_8bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/ALU_vectorial.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/mux_2inputs_20bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/mux_2inputs_128bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/substractor_branch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/mux_3inputs_16bits.sv
+set_global_assignment -name MIF_FILE memory/ROM.mif
+set_global_assignment -name MIF_FILE memory/RAM.mif
+set_global_assignment -name SYSTEMVERILOG_FILE core/mux_3inputs_128bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/xorColumns.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/addRoundKey_gar.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Execute_Stage_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME Execute_Stage_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Execute_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Execute_Stage_tb -section_id Execute_Stage_tb
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Memory_Stage_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME Memory_Stage_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Memory_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Memory_Stage_tb -section_id Memory_Stage_tb
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Writeback_Stage_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME Writeback_Stage_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Writeback_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Writeback_Stage_tb -section_id Writeback_Stage_tb
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Instruccion_R_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Instruccion_I_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Instruccion_J_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/Hazard_Data_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME Instruccion_I_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Instruccion_I_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Instruccion_I_tb -section_id Instruccion_I_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME Instruccion_J_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Instruccion_J_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Instruccion_J_tb -section_id Instruccion_J_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME Instruccion_R_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Instruccion_R_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Instruccion_R_tb -section_id Instruccion_R_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME Hazard_Data_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id Hazard_Data_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Hazard_Data_tb -section_id Hazard_Data_tb
+set_global_assignment -name SYSTEMVERILOG_FILE core/cycle_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/encrypt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/decrypt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/inverseShiftRows.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/inverseMixColumns.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/inverseSubBytes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbenches/encrypt_tb.sv
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Fetch_Stage_tb.sv -section_id Fetch_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/ROM_tb.sv -section_id ROM_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Add_tb.sv -section_id Add_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/cpu_top_tb.sv -section_id cpu_top_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/shiftRows_tb.sv -section_id shiftRows_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Decode_Stage_tb.sv -section_id Decode_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Execute_Stage_tb.sv -section_id Execute_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Memory_Stage_tb.sv -section_id Memory_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Writeback_Stage_tb.sv -section_id Writeback_Stage_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Instruccion_I_tb.sv -section_id Instruccion_I_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Instruccion_J_tb.sv -section_id Instruccion_J_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Instruccion_R_tb.sv -section_id Instruccion_R_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/Hazard_Data_tb.sv -section_id Hazard_Data_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME encrypt_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id encrypt_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME encrypt_tb -section_id encrypt_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE testbenches/encrypt_tb.sv -section_id encrypt_tb
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

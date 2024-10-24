@@ -1,0 +1,133 @@
+module cpu_top_tb;
+
+    // Declaración de señales
+    logic clk;
+    logic reset;
+
+    // Señales internas del diseño
+    logic [15:0] pc_mux_output;
+    logic [15:0] pc_address;
+    logic nop;
+    logic [15:0] pc_offset;
+    logic [15:0] pc_incremented;
+    logic [1:0] select_pc_mux;
+    logic [15:0] branch_address;
+    logic [15:0] instruction_fetch;
+    logic [15:0] instruction_decode;
+    logic wre_decode;
+    logic write_memory_enable_decode;
+    logic [1:0] writeback_data_mux_decode;
+    logic [15:0] nop_mux_output;
+    logic [1:0] select_nop_mux;
+    logic [15:0] writeback_data;
+    logic wre_writeback;
+    logic [15:0] rd1;
+    logic [15:0] rd2;
+    logic [15:0] rd3;
+    logic [15:0] extended_label;
+    logic [15:0] pc_decode;
+    logic wre_execute;
+    logic write_memory_enable_execute;
+    logic [1:0] select_writeback_data_mux_execute;
+    logic [3:0] aluOp_execute;
+    logic [3:0] rs1_execute;
+    logic [3:0] rs2_execute;
+    logic [3:0] rd_execute;
+    logic [15:0] alu_src_A;
+    logic [15:0] alu_src_B;
+    logic [15:0] alu_result_execute;
+    logic [15:0] srcA_execute;
+    logic [15:0] srcB_execute;
+    logic wre_memory;
+    logic [1:0] select_writeback_data_mux_memory;
+    logic write_memory_enable_memory;
+    logic [15:0] alu_result_memory;
+    logic [15:0] srcA_memory;
+    logic [15:0] srcB_memory;
+    logic [3:0] rd_memory;
+    logic [2:0] select_forward_mux_A;
+    logic [2:0] select_forward_mux_B;
+    logic [15:0] data_from_memory;
+    logic [15:0] data_from_memory_writeback;
+    logic [15:0] alu_result_writeback;
+    logic [3:0] rd_writeback;
+
+    // Instanciación del módulo a probar
+    top uut (
+        .clk(clk),
+        .reset(reset),
+        .pc_mux_output(pc_mux_output),
+        .pc_address(pc_address),
+        .nop(nop),
+        .pc_offset(pc_offset),
+        .pc_incremented(pc_incremented),
+        .select_pc_mux(select_pc_mux),
+        .branch_address(branch_address),
+        .instruction_fetch(instruction_fetch),
+        .instruction_decode(instruction_decode),
+        .wre_decode(wre_decode),
+        .write_memory_enable_decode(write_memory_enable_decode),
+        .writeback_data_mux_decode(writeback_data_mux_decode),
+        .nop_mux_output(nop_mux_output),
+        .select_nop_mux(select_nop_mux),
+        .writeback_data(writeback_data),
+        .wre_writeback(wre_writeback),
+        .rd1(rd1),
+        .rd2(rd2),
+        .rd3(rd3),
+        .extended_label(extended_label),
+        .pc_decode(pc_decode),
+        .wre_execute(wre_execute),
+        .write_memory_enable_execute(write_memory_enable_execute),
+        .select_writeback_data_mux_execute(select_writeback_data_mux_execute),
+        .aluOp_execute(aluOp_execute),
+        .rs1_execute(rs1_execute),
+        .rs2_execute(rs2_execute),
+        .rd_execute(rd_execute),
+        .alu_src_A(alu_src_A),
+        .alu_src_B(alu_src_B),
+        .alu_result_execute(alu_result_execute),
+        .srcA_execute(srcA_execute),
+        .srcB_execute(srcB_execute),
+        .wre_memory(wre_memory),
+        .select_writeback_data_mux_memory(select_writeback_data_mux_memory),
+        .write_memory_enable_memory(write_memory_enable_memory),
+        .alu_result_memory(alu_result_memory),
+        .srcA_memory(srcA_memory),
+        .srcB_memory(srcB_memory),
+        .rd_memory(rd_memory),
+        .select_forward_mux_A(select_forward_mux_A),
+        .select_forward_mux_B(select_forward_mux_B),
+        .data_from_memory(data_from_memory),
+        .data_from_memory_writeback(data_from_memory_writeback),
+        .alu_result_writeback(alu_result_writeback),
+        .rd_writeback(rd_writeback)
+    );
+
+    // Generación del clock
+    always #5 clk = ~clk;
+
+    // Proceso de prueba
+    initial begin
+        // Inicialización de señales
+        clk = 0;
+        reset = 1;
+
+        // Reset del sistema
+        #10 reset = 0;
+
+        // Aquí puedes definir los diferentes escenarios de prueba
+        // Estímulos para el testbench
+
+        // Ejemplo de escenario: Incrementar PC y verificar que la suma funciona
+        #20 select_pc_mux = 2'b00; // Selecciona pc_incremented
+        #20 nop = 0;
+
+        // Ejemplo de escenario: Simular un branch
+        #40 select_pc_mux = 2'b01; // Selecciona branch_address
+
+        // Finalizar la simulación después de un tiempo
+        #200 $stop;
+    end
+
+endmodule

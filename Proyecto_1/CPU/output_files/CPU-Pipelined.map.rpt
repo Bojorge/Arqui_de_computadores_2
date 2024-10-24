@@ -1,0 +1,1147 @@
+Analysis & Elaboration report for CPU-Pipelined
+Fri Sep 27 13:41:36 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration IP Cores Summary
+  5. Source assignments for ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_0ef1:auto_generated
+  6. Source assignments for RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_spq2:auto_generated
+  7. Parameter Settings for User Entity Instance: ROM:rom_memory|altsyncram:altsyncram_component
+  8. Parameter Settings for User Entity Instance: RAM:RAM_instance|altsyncram:altsyncram_component
+  9. altsyncram Parameter Settings by Entity Instance
+ 10. Analysis & Elaboration Settings
+ 11. Port Connectivity Checks: "mux_2inputs_16bits:mux_2inputs_writeback"
+ 12. Port Connectivity Checks: "MemoryWriteback_register:MemoryWriteback_register_instance"
+ 13. Port Connectivity Checks: "ExecuteMemory_register:ExecuteMemory_register_instance"
+ 14. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_15"
+ 15. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_14"
+ 16. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_13"
+ 17. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_12"
+ 18. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_11"
+ 19. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_10"
+ 20. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_9"
+ 21. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_8"
+ 22. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_7"
+ 23. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_6"
+ 24. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_5"
+ 25. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_4"
+ 26. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_3"
+ 27. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_2"
+ 28. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_1"
+ 29. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_0"
+ 30. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|Rcon:rcon_instance"
+ 31. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_15"
+ 32. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_14"
+ 33. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_13"
+ 34. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_12"
+ 35. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_11"
+ 36. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_10"
+ 37. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_9"
+ 38. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_8"
+ 39. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_7"
+ 40. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_6"
+ 41. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_5"
+ 42. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_4"
+ 43. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_3"
+ 44. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_2"
+ 45. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_1"
+ 46. Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_0"
+ 47. Port Connectivity Checks: "mux_3inputs_16bits:mux_alu_forward_B"
+ 48. Port Connectivity Checks: "mux_3inputs_16bits:mux_alu_forward_A"
+ 49. Port Connectivity Checks: "Regfile_vector:vector_instance"
+ 50. Port Connectivity Checks: "Regfile_scalar:regfile_instance"
+ 51. Port Connectivity Checks: "mux_2inputs_20bits:mux_2inputs_nop"
+ 52. Port Connectivity Checks: "adder_16:pc_add"
+ 53. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Fri Sep 27 13:41:36 2024       ;
+; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                 ; CPU-Pipelined                               ;
+; Top-level Entity Name         ; top                                         ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration IP Cores Summary                                                                 ;
++--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance       ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
+; Altera ; RAM: 2-PORT  ; 20.1    ; N/A          ; N/A          ; |top|RAM:RAM_instance ; memory/RAM.v    ;
+; Altera ; ROM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |top|ROM:rom_memory   ; memory/ROM.v    ;
++--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Source assignments for ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_0ef1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------+
+; Assignment                      ; Value              ; From ; To                                     ;
++---------------------------------+--------------------+------+----------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                      ;
++---------------------------------+--------------------+------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_spq2:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM:rom_memory|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------+
+; Parameter Name                     ; Value                ; Type                            ;
++------------------------------------+----------------------+---------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                         ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                  ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                         ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                         ;
+; WIDTH_A                            ; 20                   ; Signed Integer                  ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer                  ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer                  ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                         ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                         ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                         ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                         ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                         ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                         ;
+; WIDTH_B                            ; 1                    ; Untyped                         ;
+; WIDTHAD_B                          ; 1                    ; Untyped                         ;
+; NUMWORDS_B                         ; 1                    ; Untyped                         ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                         ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                         ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                         ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                         ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                         ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                         ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                         ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                         ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                         ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                  ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                         ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                         ;
+; BYTE_SIZE                          ; 8                    ; Untyped                         ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
+; INIT_FILE                          ; ./ROM.mif            ; Untyped                         ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                         ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                         ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                         ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                         ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                         ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                         ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                         ;
+; CBXI_PARAMETER                     ; altsyncram_0ef1      ; Untyped                         ;
++------------------------------------+----------------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM:RAM_instance|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT      ; Untyped                           ;
+; WIDTH_A                            ; 8                    ; Signed Integer                    ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer                    ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer                    ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 128                  ; Signed Integer                    ;
+; WIDTHAD_B                          ; 12                   ; Signed Integer                    ;
+; NUMWORDS_B                         ; 4096                 ; Signed Integer                    ;
+; INDATA_REG_B                       ; CLOCK0               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                           ;
+; OUTDATA_REG_B                      ; CLOCK0               ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; ./RAM.mif            ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_spq2      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                             ;
++-------------------------------------------+--------------------------------------------------+
+; Name                                      ; Value                                            ;
++-------------------------------------------+--------------------------------------------------+
+; Number of entity instances                ; 2                                                ;
+; Entity Instance                           ; ROM:rom_memory|altsyncram:altsyncram_component   ;
+;     -- OPERATION_MODE                     ; ROM                                              ;
+;     -- WIDTH_A                            ; 20                                               ;
+;     -- NUMWORDS_A                         ; 65536                                            ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                           ;
+;     -- WIDTH_B                            ; 1                                                ;
+;     -- NUMWORDS_B                         ; 1                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                           ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                             ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ;
+; Entity Instance                           ; RAM:RAM_instance|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                  ;
+;     -- WIDTH_A                            ; 8                                                ;
+;     -- NUMWORDS_A                         ; 65536                                            ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                           ;
+;     -- WIDTH_B                            ; 128                                              ;
+;     -- NUMWORDS_B                         ; 4096                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                           ;
+;     -- OUTDATA_REG_B                      ; CLOCK0                                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                             ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ;
++-------------------------------------------+--------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                           ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; top                ; CPU-Pipelined      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux_2inputs_16bits:mux_2inputs_writeback"                                                                                                       ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                         ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; data1 ; Input ; Warning  ; Input port expression (8 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "data1[15..8]" will be connected to GND. ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MemoryWriteback_register:MemoryWriteback_register_instance"                                                                                                     ;
++---------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                ;
++---------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; calc_data_in  ; Input  ; Warning  ; Input port expression (8 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "calc_data_in[15..8]" will be connected to GND. ;
+; calc_data_out ; Output ; Warning  ; Output or bidir port (16 bits) is wider than the port expression (8 bits) it drives; bit(s) "calc_data_out[15..8]" have no fanouts                     ;
++---------------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ExecuteMemory_register:ExecuteMemory_register_instance"                                                                                          ;
++--------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                                                                            ;
++--------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------+
+; ALUresult_out      ; Output ; Warning  ; Output or bidir port (16 bits) is wider than the port expression (8 bits) it drives; bit(s) "ALUresult_out[15..8]" have no fanouts ;
+; srcB_memory[15..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                ;
++--------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_15" ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                           ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------+
+; row_idx ; Input ; Info     ; Stuck at VCC                                                                                      ;
+; col_idx ; Input ; Info     ; Stuck at VCC                                                                                      ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_14" ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                        ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                   ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                                   ;
+; col_idx    ; Input ; Info     ; Stuck at VCC                                                                                   ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_13" ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                        ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                                   ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                   ;
+; col_idx    ; Input ; Info     ; Stuck at VCC                                                                                   ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_12" ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                           ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------+
+; row_idx ; Input ; Info     ; Stuck at GND                                                                                      ;
+; col_idx ; Input ; Info     ; Stuck at VCC                                                                                      ;
++---------+-------+----------+---------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_11" ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                        ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; row_idx    ; Input ; Info     ; Stuck at VCC                                                                                   ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                   ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                                   ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_10" ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                        ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                   ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                                   ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                   ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                                   ;
++------------+-------+----------+------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_9" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_8" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx    ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_7" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx    ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_6" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_5" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_4" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx    ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_3" ;
++---------+-------+----------+--------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                          ;
++---------+-------+----------+--------------------------------------------------------------------------------------------------+
+; row_idx ; Input ; Info     ; Stuck at VCC                                                                                     ;
+; col_idx ; Input ; Info     ; Stuck at GND                                                                                     ;
++---------+-------+----------+--------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_2" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; col_idx    ; Input ; Info     ; Stuck at GND                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_1" ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                       ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                                  ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                                  ;
+; col_idx    ; Input ; Info     ; Stuck at GND                                                                                  ;
++------------+-------+----------+-----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_0" ;
++---------+-------+----------+--------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                          ;
++---------+-------+----------+--------------------------------------------------------------------------------------------------+
+; row_idx ; Input ; Info     ; Stuck at GND                                                                                     ;
+; col_idx ; Input ; Info     ; Stuck at GND                                                                                     ;
++---------+-------+----------+--------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|Rcon:rcon_instance" ;
++-------+-------+----------+-------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                       ;
++-------+-------+----------+-------------------------------------------------------------------------------+
+; round ; Input ; Info     ; Stuck at GND                                                                  ;
++-------+-------+----------+-------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_15" ;
++---------+-------+----------+----------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                ;
++---------+-------+----------+----------------------------------------------------------------------------------------+
+; row     ; Input ; Info     ; Stuck at VCC                                                                           ;
+; row_idx ; Input ; Info     ; Stuck at VCC                                                                           ;
+; col_idx ; Input ; Info     ; Stuck at VCC                                                                           ;
++---------+-------+----------+----------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_14" ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at VCC                                                                        ;
+; row[0]     ; Input ; Info     ; Stuck at GND                                                                        ;
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                        ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                        ;
+; col_idx    ; Input ; Info     ; Stuck at VCC                                                                        ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_13" ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at GND                                                                        ;
+; row[0]     ; Input ; Info     ; Stuck at VCC                                                                        ;
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                        ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                        ;
+; col_idx    ; Input ; Info     ; Stuck at VCC                                                                        ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_12" ;
++---------+-------+----------+----------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                ;
++---------+-------+----------+----------------------------------------------------------------------------------------+
+; row     ; Input ; Info     ; Stuck at GND                                                                           ;
+; row_idx ; Input ; Info     ; Stuck at GND                                                                           ;
+; col_idx ; Input ; Info     ; Stuck at VCC                                                                           ;
++---------+-------+----------+----------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_11" ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; row        ; Input ; Info     ; Stuck at VCC                                                                        ;
+; row_idx    ; Input ; Info     ; Stuck at VCC                                                                        ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                        ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                        ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_10" ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at VCC                                                                        ;
+; row[0]     ; Input ; Info     ; Stuck at GND                                                                        ;
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                        ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                        ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                        ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                        ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_9" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at GND                                                                       ;
+; row[0]     ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_8" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row        ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx    ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[1] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; col_idx[0] ; Input ; Info     ; Stuck at GND                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_7" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row        ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row_idx    ; Input ; Info     ; Stuck at VCC                                                                       ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_6" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row[0]     ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_5" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at GND                                                                       ;
+; row[0]     ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_4" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row        ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx    ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_3" ;
++---------+-------+----------+---------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                               ;
++---------+-------+----------+---------------------------------------------------------------------------------------+
+; row     ; Input ; Info     ; Stuck at VCC                                                                          ;
+; row_idx ; Input ; Info     ; Stuck at VCC                                                                          ;
+; col_idx ; Input ; Info     ; Stuck at GND                                                                          ;
++---------+-------+----------+---------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_2" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row[0]     ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx[1] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row_idx[0] ; Input ; Info     ; Stuck at GND                                                                       ;
+; col_idx    ; Input ; Info     ; Stuck at GND                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_1" ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+; row[1]     ; Input ; Info     ; Stuck at GND                                                                       ;
+; row[0]     ; Input ; Info     ; Stuck at VCC                                                                       ;
+; row_idx[1] ; Input ; Info     ; Stuck at GND                                                                       ;
+; row_idx[0] ; Input ; Info     ; Stuck at VCC                                                                       ;
+; col_idx    ; Input ; Info     ; Stuck at GND                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_0" ;
++---------+-------+----------+---------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                               ;
++---------+-------+----------+---------------------------------------------------------------------------------------+
+; row     ; Input ; Info     ; Stuck at GND                                                                          ;
+; row_idx ; Input ; Info     ; Stuck at GND                                                                          ;
+; col_idx ; Input ; Info     ; Stuck at GND                                                                          ;
++---------+-------+----------+---------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux_3inputs_16bits:mux_alu_forward_B"                                                                                                           ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                         ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; data2 ; Input ; Warning  ; Input port expression (8 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "data2[15..8]" will be connected to GND. ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux_3inputs_16bits:mux_alu_forward_A"                                                                                                                 ;
++------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                         ;
++------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; data2      ; Input  ; Warning  ; Input port expression (8 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "data2[15..8]" will be connected to GND. ;
+; out[15..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Regfile_vector:vector_instance"                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; rd3  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Regfile_scalar:regfile_instance"                                                    ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; rd3  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "mux_2inputs_20bits:mux_2inputs_nop" ;
++-------+-------+----------+-------------------------------------+
+; Port  ; Type  ; Severity ; Details                             ;
++-------+-------+----------+-------------------------------------+
+; data1 ; Input ; Info     ; Stuck at GND                        ;
++-------+-------+----------+-------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "adder_16:pc_add" ;
++----------+-------+----------+---------------+
+; Port     ; Type  ; Severity ; Details       ;
++----------+-------+----------+---------------+
+; b[15..1] ; Input ; Info     ; Stuck at GND  ;
+; b[0]     ; Input ; Info     ; Stuck at VCC  ;
++----------+-------+----------+---------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Sep 27 13:40:59 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU-Pipelined -c CPU-Pipelined --analysis_and_elaboration
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/decode_stage_tb.sv
+    Info (12023): Found entity 1: Decode_Stage_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Decode_Stage_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file core/subbytes.sv
+    Info (12023): Found entity 1: subBytes File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/subBytes.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/fetch_stage_tb.sv
+    Info (12023): Found entity 1: Fetch_Stage_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Fetch_Stage_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/cpu_top_tb.sv
+    Info (12023): Found entity 1: cpu_top_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/cpu_top_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file core/shiftrows.sv
+    Info (12023): Found entity 1: shiftRows File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/shiftRows.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/sbox_rom_comb_tb.sv
+    Info (12023): Found entity 1: sbox_rom_comb_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/sbox_rom_comb_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file core/sbox_rom_comb.sv
+    Info (12023): Found entity 1: sbox_rom_comb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/sbox_rom_comb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/sbox_rom.v
+    Info (12023): Found entity 1: sbox_rom File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/sbox_rom.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file core/roundkey.sv
+    Info (12023): Found entity 1: roundKey File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/roundKey.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/rotword.sv
+    Info (12023): Found entity 1: rotWord File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/rotWord.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/rcon.sv
+    Info (12023): Found entity 1: Rcon File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/Rcon.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mixcolumns.sv
+    Info (12023): Found entity 1: mixColumns File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mixColumns.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/addroundkey.sv
+    Info (12023): Found entity 1: addRoundKey File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/AddRoundKey.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file top.sv
+    Info (12023): Found entity 1: top File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/zeroextend.sv
+    Info (12023): Found entity 1: zeroExtend File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/zeroExtend.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/signextend.sv
+    Info (12023): Found entity 1: signExtend File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/signExtend.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/regfile_vector.sv
+    Info (12023): Found entity 1: Regfile_vector File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/Regfile_vector.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/regfile_scalar.sv
+    Info (12023): Found entity 1: Regfile_scalar File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/Regfile_scalar.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/pc_register.sv
+    Info (12023): Found entity 1: PC_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/PC_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/memorywriteback_register.sv
+    Info (12023): Found entity 1: MemoryWriteback_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/MemoryWriteback_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/memoryloader.sv
+    Info (12023): Found entity 1: MemoryLoader File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/MemoryLoader.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/hazard_detection_unit.sv
+    Info (12023): Found entity 1: hazard_detection_unit File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/hazard_detection_unit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/forwarding_unit.sv
+    Info (12023): Found entity 1: forwarding_unit File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/forwarding_unit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/fetchdecode_register.sv
+    Info (12023): Found entity 1: FetchDecode_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/FetchDecode_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/executememory_register.sv
+    Info (12023): Found entity 1: ExecuteMemory_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/ExecuteMemory_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/decodeexecute_register.sv
+    Info (12023): Found entity 1: DecodeExecute_register File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/DecodeExecute_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/controlunit.sv
+    Info (12023): Found entity 1: controlUnit File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/controlUnit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/comparator_branch.sv
+    Info (12023): Found entity 1: comparator_branch File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/comparator_branch.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/alu.sv
+    Info (12023): Found entity 1: ALU File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/ALU.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memory/rom.v
+    Info (12023): Found entity 1: ROM File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/ROM.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file memory/ram.v
+    Info (12023): Found entity 1: RAM File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/RAM.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file core/cpu-pipelined.sv
+    Info (12023): Found entity 1: adder_8 File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/CPU-Pipelined.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/adder_16.sv
+    Info (12023): Found entity 1: adder_16 File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/adder_16.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/adder_8bits.sv
+    Info (12023): Found entity 1: adder_8bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/adder_8bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mux_2inputs_16bits.sv
+    Info (12023): Found entity 1: mux_2inputs_16bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mux_2inputs_16bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mux_2inputs_8bits.sv
+    Info (12023): Found entity 1: mux_2inputs_8bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mux_2inputs_8bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/alu_vectorial.sv
+    Info (12023): Found entity 1: ALU_vectorial File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/ALU_vectorial.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mux_2inputs_20bits.sv
+    Info (12023): Found entity 1: mux_2inputs_20bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mux_2inputs_20bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mux_2inputs_128bits.sv
+    Info (12023): Found entity 1: mux_2inputs_128bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mux_2inputs_128bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/substractor_branch.sv
+    Info (12023): Found entity 1: substractor_branch File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/substractor_branch.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mux_3inputs_16bits.sv
+    Info (12023): Found entity 1: mux_3inputs_16bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mux_3inputs_16bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/mux_3inputs_128bits.sv
+    Info (12023): Found entity 1: mux_3inputs_128bits File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mux_3inputs_128bits.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/xorcolumns.sv
+    Info (12023): Found entity 1: xorColumns File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/xorColumns.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/addroundkey_gar.sv
+    Info (12023): Found entity 1: addRoundKey_gar File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/addRoundKey_gar.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/execute_stage_tb.sv
+    Info (12023): Found entity 1: Execute_Stage_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/memory_stage_tb.sv
+    Info (12023): Found entity 1: Memory_Stage_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/writeback_stage_tb.sv
+    Info (12023): Found entity 1: Writeback_Stage_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Writeback_Stage_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/instruccion_r_tb.sv
+    Info (12023): Found entity 1: Instruccion_R_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_R_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/instruccion_i_tb.sv
+    Info (12023): Found entity 1: Instruccion_I_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_I_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/instruccion_j_tb.sv
+    Info (12023): Found entity 1: Instruccion_J_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_J_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/hazard_data_tb.sv
+    Info (12023): Found entity 1: Hazard_Data_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Hazard_Data_tb.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file core/cycle_counter.sv
+    Info (12023): Found entity 1: cycle_counter File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/cycle_counter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/encrypt.sv
+    Info (12023): Found entity 1: encrypt File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/decrypt.sv
+    Info (12023): Found entity 1: decrypt File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/inverseshiftrows.sv
+    Info (12023): Found entity 1: inverseShiftRows File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/inverseShiftRows.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/inversemixcolumns.sv
+    Info (12023): Found entity 1: inverseMixColumns File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/inverseMixColumns.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file core/inversesubbytes.sv
+    Info (12023): Found entity 1: inverseSubBytes File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/inverseSubBytes.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbenches/encrypt_tb.sv
+    Info (12023): Found entity 1: encrypt_tb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/encrypt_tb.sv Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at Decode_Stage_tb.sv(129): created implicit net for "wre_execute" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Decode_Stage_tb.sv Line: 129
+Warning (10236): Verilog HDL Implicit Net warning at Decode_Stage_tb.sv(130): created implicit net for "vector_wre_execute" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Decode_Stage_tb.sv Line: 130
+Warning (10236): Verilog HDL Implicit Net warning at Decode_Stage_tb.sv(139): created implicit net for "vector_srcA_execute" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Decode_Stage_tb.sv Line: 139
+Warning (10236): Verilog HDL Implicit Net warning at Decode_Stage_tb.sv(140): created implicit net for "vector_srcB_execute" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Decode_Stage_tb.sv Line: 140
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(72): created implicit net for "writeback_data" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 72
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(92): created implicit net for "writeback_vector" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 92
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(95): created implicit net for "alu_src_vector_A" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 95
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(102): created implicit net for "alu_src_vector_B" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 102
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(109): created implicit net for "alu_vector_result_execute" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 109
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(116): created implicit net for "rs1_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 116
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(117): created implicit net for "rs2_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 117
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(119): created implicit net for "rd_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 119
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(123): created implicit net for "wre_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 123
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(125): created implicit net for "vector_wre_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 125
+Warning (10236): Verilog HDL Implicit Net warning at Execute_Stage_tb.sv(159): created implicit net for "vector_srcB_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Execute_Stage_tb.sv Line: 159
+Warning (10236): Verilog HDL Implicit Net warning at Memory_Stage_tb.sv(56): created implicit net for "srcA_execute" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 56
+Warning (10236): Verilog HDL Implicit Net warning at Memory_Stage_tb.sv(57): created implicit net for "alu_src_B" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 57
+Warning (10236): Verilog HDL Implicit Net warning at Memory_Stage_tb.sv(66): created implicit net for "write_memory_enable_a_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 66
+Warning (10236): Verilog HDL Implicit Net warning at Memory_Stage_tb.sv(67): created implicit net for "write_memory_enable_b_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 67
+Warning (10236): Verilog HDL Implicit Net warning at Memory_Stage_tb.sv(100): created implicit net for "wre_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 100
+Warning (10236): Verilog HDL Implicit Net warning at Memory_Stage_tb.sv(116): created implicit net for "writeback_data" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Memory_Stage_tb.sv Line: 116
+Warning (10236): Verilog HDL Implicit Net warning at Instruccion_R_tb.sv(98): created implicit net for "branch_address" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_R_tb.sv Line: 98
+Warning (10236): Verilog HDL Implicit Net warning at Instruccion_R_tb.sv(126): created implicit net for "select_pc_mux" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_R_tb.sv Line: 126
+Warning (10236): Verilog HDL Implicit Net warning at Instruccion_I_tb.sv(98): created implicit net for "branch_address" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_I_tb.sv Line: 98
+Warning (10236): Verilog HDL Implicit Net warning at Instruccion_I_tb.sv(126): created implicit net for "select_pc_mux" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Instruccion_I_tb.sv Line: 126
+Warning (10236): Verilog HDL Implicit Net warning at Hazard_Data_tb.sv(98): created implicit net for "branch_address" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Hazard_Data_tb.sv Line: 98
+Warning (10236): Verilog HDL Implicit Net warning at Hazard_Data_tb.sv(126): created implicit net for "select_pc_mux" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/testbenches/Hazard_Data_tb.sv Line: 126
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Info (12128): Elaborating entity "cycle_counter" for hierarchy "cycle_counter:my_counter" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 129
+Info (12128): Elaborating entity "adder_16" for hierarchy "adder_16:pc_add" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 136
+Info (12128): Elaborating entity "mux_2inputs_16bits" for hierarchy "mux_2inputs_16bits:mux_2inputs_PC" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 143
+Info (12128): Elaborating entity "PC_register" for hierarchy "PC_register:pc_reg" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 151
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:rom_memory" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 157
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/ROM.v Line: 82
+Info (12130): Elaborated megafunction instantiation "ROM:rom_memory|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/ROM.v Line: 82
+Info (12133): Instantiated megafunction "ROM:rom_memory|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/ROM.v Line: 82
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "./ROM.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "width_a" = "20"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0ef1.tdf
+    Info (12023): Found entity 1: altsyncram_0ef1 File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_0ef1.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_0ef1" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_0ef1:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
+    Info (12023): Found entity 1: decode_61a File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/decode_61a.tdf Line: 23
+Info (12128): Elaborating entity "decode_61a" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_0ef1:auto_generated|decode_61a:rden_decode" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_0ef1.tdf Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_7hb.tdf
+    Info (12023): Found entity 1: mux_7hb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/mux_7hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_7hb" for hierarchy "ROM:rom_memory|altsyncram:altsyncram_component|altsyncram_0ef1:auto_generated|mux_7hb:mux2" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_0ef1.tdf Line: 42
+Info (12128): Elaborating entity "FetchDecode_register" for hierarchy "FetchDecode_register:FetchDecode_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 169
+Info (12128): Elaborating entity "hazard_detection_unit" for hierarchy "hazard_detection_unit:u_hazard_detection" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 184
+Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:control_unit_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 189
+Info (12128): Elaborating entity "mux_2inputs_20bits" for hierarchy "mux_2inputs_20bits:mux_2inputs_nop" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 196
+Info (12128): Elaborating entity "zeroExtend" for hierarchy "zeroExtend:zero_extend_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 201
+Info (12128): Elaborating entity "substractor_branch" for hierarchy "substractor_branch:branch_label_pc" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 207
+Info (12128): Elaborating entity "Regfile_scalar" for hierarchy "Regfile_scalar:regfile_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 219
+Info (12128): Elaborating entity "Regfile_vector" for hierarchy "Regfile_vector:vector_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 231
+Info (12128): Elaborating entity "comparator_branch" for hierarchy "comparator_branch:comparator_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 238
+Info (12128): Elaborating entity "DecodeExecute_register" for hierarchy "DecodeExecute_register:DecodeExecute_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 268
+Info (12128): Elaborating entity "mux_3inputs_16bits" for hierarchy "mux_3inputs_16bits:mux_alu_forward_A" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 277
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_escalar" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 292
+Info (12128): Elaborating entity "mux_3inputs_128bits" for hierarchy "mux_3inputs_128bits:mux_alu_forward_A_vector" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 300
+Info (12128): Elaborating entity "ALU_vectorial" for hierarchy "ALU_vectorial:ALU_vectorial_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 316
+Info (12128): Elaborating entity "encrypt" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/ALU_vectorial.sv Line: 21
+Info (12128): Elaborating entity "addRoundKey" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|addRoundKey:add_round_key_inst_0" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 100
+Info (12128): Elaborating entity "mixColumns" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|mixColumns:mixColumns_inst_0" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 156
+Warning (10270): Verilog HDL Case Statement warning at mixColumns.sv(70): incomplete case statement has no default case item File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/mixColumns.sv Line: 70
+Info (12128): Elaborating entity "shiftRows" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|shiftRows:shiftRows_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 317
+Info (12128): Elaborating entity "subBytes" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|subBytes:subBytes_instance_0" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 322
+Warning (10030): Net "SBox.data_a" at subBytes.sv(7) has no driver or initial value, using a default initial value '0' File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/subBytes.sv Line: 7
+Warning (10030): Net "SBox.waddr_a" at subBytes.sv(7) has no driver or initial value, using a default initial value '0' File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/subBytes.sv Line: 7
+Warning (10030): Net "SBox.we_a" at subBytes.sv(7) has no driver or initial value, using a default initial value '0' File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/subBytes.sv Line: 7
+Info (12128): Elaborating entity "rotWord" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|rotWord:rot_word_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 410
+Info (12128): Elaborating entity "Rcon" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|Rcon:rcon_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 448
+Info (12128): Elaborating entity "xorColumns" for hierarchy "ALU_vectorial:ALU_vectorial_instance|encrypt:encrypt_inst|xorColumns:xor_instance_1" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/encrypt.sv Line: 469
+Info (12128): Elaborating entity "decrypt" for hierarchy "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/ALU_vectorial.sv Line: 30
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(21): object "col_0_in_b_0" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 21
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(21): object "col_0_in_b_1" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 21
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(21): object "col_0_in_b_2" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 21
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(21): object "col_0_in_b_3" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 21
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(22): object "col_1_in_b_0" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 22
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(22): object "col_1_in_b_1" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 22
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(22): object "col_1_in_b_2" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 22
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(22): object "col_1_in_b_3" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 22
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(23): object "col_2_in_b_0" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 23
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(23): object "col_2_in_b_1" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 23
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(23): object "col_2_in_b_2" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 23
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(23): object "col_2_in_b_3" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 23
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(24): object "col_3_in_b_0" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 24
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(24): object "col_3_in_b_1" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 24
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(24): object "col_3_in_b_2" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 24
+Warning (10036): Verilog HDL or VHDL warning at decrypt.sv(24): object "col_3_in_b_3" assigned a value but never read File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 24
+Info (12128): Elaborating entity "inverseMixColumns" for hierarchy "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseMixColumns:inv_mixColumns_inst_0" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 91
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "InvMixMatrix" into its bus
+Info (12128): Elaborating entity "inverseShiftRows" for hierarchy "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseShiftRows:inverseShiftRows_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 237
+Info (12128): Elaborating entity "inverseSubBytes" for hierarchy "ALU_vectorial:ALU_vectorial_instance|decrypt:decrypt_inst|inverseSubBytes:inv_subBytes_instance_0" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/decrypt.sv Line: 243
+Warning (10030): Net "invSBox.data_a" at inverseSubBytes.sv(7) has no driver or initial value, using a default initial value '0' File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/inverseSubBytes.sv Line: 7
+Warning (10030): Net "invSBox.waddr_a" at inverseSubBytes.sv(7) has no driver or initial value, using a default initial value '0' File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/inverseSubBytes.sv Line: 7
+Warning (10030): Net "invSBox.we_a" at inverseSubBytes.sv(7) has no driver or initial value, using a default initial value '0' File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/core/inverseSubBytes.sv Line: 7
+Info (12128): Elaborating entity "forwarding_unit" for hierarchy "forwarding_unit:forwarding_unit_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 335
+Info (12128): Elaborating entity "ExecuteMemory_register" for hierarchy "ExecuteMemory_register:ExecuteMemory_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 369
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 382
+Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/RAM.v Line: 98
+Info (12130): Elaborated megafunction instantiation "RAM:RAM_instance|altsyncram:altsyncram_component" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/RAM.v Line: 98
+Info (12133): Instantiated megafunction "RAM:RAM_instance|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/memory/RAM.v Line: 98
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "init_file" = "./RAM.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "numwords_b" = "4096"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "widthad_b" = "12"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "128"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_spq2.tdf
+    Info (12023): Found entity 1: altsyncram_spq2 File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_spq2.tdf Line: 36
+Info (12128): Elaborating entity "altsyncram_spq2" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_spq2:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/decode_dla.tdf Line: 23
+Info (12128): Elaborating entity "decode_dla" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_spq2:auto_generated|decode_dla:decode2" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_spq2.tdf Line: 53
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_tfb.tdf
+    Info (12023): Found entity 1: mux_tfb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/mux_tfb.tdf Line: 23
+Info (12128): Elaborating entity "mux_tfb" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_spq2:auto_generated|mux_tfb:mux4" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_spq2.tdf Line: 57
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_0jb.tdf
+    Info (12023): Found entity 1: mux_0jb File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/mux_0jb.tdf Line: 23
+Info (12128): Elaborating entity "mux_0jb" for hierarchy "RAM:RAM_instance|altsyncram:altsyncram_component|altsyncram_spq2:auto_generated|mux_0jb:mux5" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/db/altsyncram_spq2.tdf Line: 58
+Info (12128): Elaborating entity "MemoryWriteback_register" for hierarchy "MemoryWriteback_register:MemoryWriteback_register_instance" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 410
+Info (12128): Elaborating entity "mux_2inputs_128bits" for hierarchy "mux_2inputs_128bits:mux_vector_2inputs_writeback" File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU_vectorial/Arch2P1IS2024/CPU/top.sv Line: 425
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4863 megabytes
+    Info: Processing ended: Fri Sep 27 13:41:36 2024
+    Info: Elapsed time: 00:00:37
+    Info: Total CPU time (on all processors): 00:00:43
+
+

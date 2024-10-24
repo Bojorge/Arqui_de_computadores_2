@@ -1,0 +1,9 @@
+module forwarding_unit (
+	input logic [3:0] rs1_execute;
+	input logic [3:0] rs2_execute;
+	input logic [3:0] rd_memory;
+	input logic [3:0] rd_writeback;
+	
+);
+
+endmodule

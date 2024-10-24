@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at PC_register.sv(13): always construct contains both blocking and non-blocking assignments File: C:/Users/Manuel/Documents/TEC/Arqui 2/CPU/CPU-Pipelined/core/PC_register.sv Line: 13
