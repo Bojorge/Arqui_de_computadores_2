@@ -3,10 +3,27 @@
 #include <string.h>
 #include <math.h>
 #include <mpi.h>
+#include <sys/resource.h>
+#include <time.h>
+
+long getRAMUsage() {
+    struct rusage usage;
+    getrusage(RUSAGE_SELF, &usage);
+    return usage.ru_maxrss; // Devuelve el uso máximo de RAM en kilobytes
+}
+
+double getElapsedTime(clock_t start, clock_t end) {
+    return (double)(end - start) / CLOCKS_PER_SEC;
+}
 
 void apply_sobel(unsigned char *input, unsigned char *output, int width, int height, int start_row, int end_row) {
+    clock_t start = clock();
+
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     int Gy[3][3] = {{1, 2, 1}, {0, 0, 0}, {-1, -2, -1}};
+
+    size_t totalDataRead = 0;
+    size_t totalDataWritten = 0;
 
     for (int y = start_row; y < end_row; y++) {
         for (int x = 1; x < width - 1; x++) {
@@ -16,14 +33,31 @@ void apply_sobel(unsigned char *input, unsigned char *output, int width, int hei
                 for (int j = -1; j <= 1; j++) {
                     sum_x += input[(y + i) * width + (x + j)] * Gx[i + 1][j + 1];
                     sum_y += input[(y + i) * width + (x + j)] * Gy[i + 1][j + 1];
+                    totalDataRead += sizeof(unsigned char);  // Corrige el tamaño de lectura
                 }
             }
 
             int magnitude = (int)(sqrt(sum_x * sum_x + sum_y * sum_y));
             output[(y - start_row) * width + x] = (magnitude > 255) ? 255 : magnitude;
+            totalDataWritten += sizeof(unsigned char); // Corrige el tamaño de escritura
         }
     }
+
+    clock_t end = clock();
+    double elapsedTime = getElapsedTime(start, end);
+
+    if (elapsedTime > 0) {
+        double bandwidth = (totalDataRead + totalDataWritten) / (elapsedTime * 1024 * 1024); // Conversión a MB
+        printf("Ancho de banda: %.2f MB/s\n", bandwidth);
+    } else {
+        printf("Ancho de banda: N/A (tiempo transcurrido insignificante)\n");
+    }
+
+    long ramUsage = getRAMUsage();
+    printf("Uso de RAM: %ld KB\n", ramUsage);
+    printf("\n ---------------------------------- \n");
 }
+
 
 unsigned char *read_pgm(const char *filename, int *width, int *height) {
     FILE *file = fopen(filename, "rb");
@@ -53,7 +87,8 @@ void write_pgm(const char *filename, unsigned char *data, int width, int height)
 }
 
 int main(int argc, char **argv) {
-    const char *imageNames[] = {"alien.pgm", "bike.pgm", "dinosaur.pgm", "building.pgm", "guitar.pgm"};
+    clock_t start = clock();
+    const char *imageNames[] = {"guitar.pgm", "alien.pgm", "building.pgm", "bike.pgm", "dinosaur.pgm"};
     const int numImages = sizeof(imageNames) / sizeof(imageNames[0]);
     
     int rank, size;
@@ -116,8 +151,13 @@ int main(int argc, char **argv) {
 
     if (rank == 0) {
         printf("Filtro Sobel aplicado con MPI y resultados guardados en 'sobel_mpi_result'.\n");
+        clock_t end = clock();
+
+        double latency = (double)(end - start) / CLOCKS_PER_SEC;
+        printf("Latencia: %.2f segundos\n", latency);
     }
 
     MPI_Finalize();
+
     return 0;
 }

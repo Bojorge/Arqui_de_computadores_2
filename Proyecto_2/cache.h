@@ -19,10 +19,6 @@ struct cache {
     // Constructor
     cache();
 
-    void load(int block, uint64_t addr, RAM &memory, bus &system_bus);
-
-    void store(int block, uint64_t addr, RAM &memory, bus &system_bus);
-
     // Función para imprimir el estado de cada bloque en la cache
     void print_cache_state(const std::string &core_name);
 };

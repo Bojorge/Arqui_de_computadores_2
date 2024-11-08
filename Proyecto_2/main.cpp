@@ -1,43 +1,43 @@
-#include <thread>
-#include "ram.h"
-#include "cache.h"
-#include "bus.h"
 #include "core.h"
-
-
-// Función para ejecutar un core
-void execute_core(core &c, RAM &ram, bus &system_bus) {
-    c.load(0, 10, ram, system_bus);  // Cargar memoria[10] en REG0
-    c.inc(0);                        // Incrementar REG0
-    c.store(0, 20, ram, system_bus); // Guardar REG0 en memoria[20]
-}
+#include "ram.h"
+#include "bus.h"
 
 int main() {
-    RAM system_ram;
+    RAM memory;
     bus system_bus;
-    core core_0, core_1;
+    core coreA, coreB;
 
-    // Inicializar memoria RAM
-    for (int i = 0; i < 256; i++) {
-        system_ram.memory[i] = i * 10;  // Valores iniciales en la memoria
-    }
+    uint64_t address = 10;  // Dirección de prueba en RAM
 
-    // Crear hilos para ejecutar cores simultáneamente
-    std::thread core_thread_0(execute_core, std::ref(core_0), std::ref(system_ram), std::ref(system_bus));
-    std::thread core_thread_1(execute_core, std::ref(core_1), std::ref(system_ram), std::ref(system_bus));
+    // Primera lectura en Core A (debe ir a estado Exclusive E)
+    coreA.load(0, address, memory, system_bus);
 
-    // Unir los hilos
-    core_thread_0.join();
-    core_thread_1.join();
+    // Imprimir estados para verificar el cumplimiento del protocolo
+    coreA.core_cache.print_cache_state("Core A");
+    coreB.core_cache.print_cache_state("Core B");
 
-    // Mostrar resultados básicos
-    std::cout << "Número de peticiones de lectura: " << system_bus.read_requests << std::endl;
-    std::cout << "Número de peticiones de escritura: " << system_bus.write_requests << std::endl;
-    std::cout << "Cantidad de datos transmitidos: " << system_bus.data_transmitted << " bits" << std::endl;
+    // Core B intenta leer el mismo dato (debe cambiar a estado Shared S en ambos cores)
+    coreB.load(0, address, memory, system_bus);
 
-    // Mostrar el estado MOESI de cada cache
-    core_0.core_cache.print_cache_state("Core 0");
-    core_1.core_cache.print_cache_state("Core 1");
+    // Imprimir estados para verificar el cumplimiento del protocolo
+    coreA.core_cache.print_cache_state("Core A");
+    coreB.core_cache.print_cache_state("Core B");
+
+    // Core A intenta escribir en el mismo dato (debe pasar a Modified M en Core A y Invalid I en Core B)
+    coreA.store(0, address, memory, system_bus);
+
+    // Imprimir estados para verificar el cumplimiento del protocolo
+    coreA.core_cache.print_cache_state("Core A");
+    coreB.core_cache.print_cache_state("Core B");
+
+    // Core B intenta leer el dato después de invalidación (debe pasar a Owner O en Core A y Shared S en Core B)
+    coreB.load(0, address, memory, system_bus);
+
+    // Imprimir estados para verificar el cumplimiento del protocolo
+    coreA.core_cache.print_cache_state("Core A");
+    coreB.core_cache.print_cache_state("Core B");
+    
+    //system_bus.print_bus_state();
 
     return 0;
 }

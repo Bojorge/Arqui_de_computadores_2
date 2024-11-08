@@ -14,10 +14,10 @@ struct core {
     std::array<uint64_t, 4> registers;        // 4 registros de 64 bits: REG0, REG1, REG2, REG3
 
     // Función para cargar datos desde RAM a un registro
-    void load(int reg, uint64_t addr, RAM &memory, bus &system_bus);
+    void load(int reg, uint64_t addr);
 
     // Función para almacenar datos de un registro en RAM
-    void store(int reg, uint64_t addr, RAM &memory, bus &system_bus);
+    void store(int reg, uint64_t addr, uint64_t data);
 
     // Incrementar el valor en un registro 
     void inc(int reg);
