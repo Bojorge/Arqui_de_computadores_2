@@ -13,10 +13,11 @@ bus::bus() {
 }
 
 // Función para manejar una solicitud de lectura en el bus
-uint64_t bus::read_request(uint64_t address, uint64_t data, uint64_t cache_index, uint64_t cache_block) {
+uint64_t bus::read_request(uint64_t address, uint64_t cache_index, uint64_t cache_block) {
     read_requests++;
     // Verificar si el dato está en el puerto de direcciones
     if (address < 256) {
+        uint64_t data = 0;
         update_moesi_state(address, data, cache_index, cache_block);
         return data_port[address];
         std::cout << "Bus: Lectura completada en la direccion " << address << " con el dato " << data_port[address] << std::endl;

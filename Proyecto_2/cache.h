@@ -9,6 +9,7 @@
 #include "bus.h"
 
 struct cache {
+    uint64_t index = 0;                       // indice para distinguir entre caches
     std::array<uint64_t, 8> data;             // 8 bloques de datos
     std::array<uint64_t, 8> addresses;        // Direcciones correspondientes
     std::array<std::string, 8> moesi_state;   // Estados MOESI por bloque
@@ -18,6 +19,9 @@ struct cache {
 
     // Constructor
     cache();
+
+    void read(int block, uint64_t addr, bus bus);
+    void write(int block, uint64_t addr, uint64_t data, bus bus);
 
     // Función para imprimir el estado de cada bloque en la cache
     void print_cache_state(const std::string &core_name);

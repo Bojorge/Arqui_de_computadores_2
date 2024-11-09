@@ -23,7 +23,7 @@ struct bus {
     bus();
 
     // Función para manejar una solicitud de lectura en el bus
-    uint64_t read_request(uint64_t address, uint64_t data, uint64_t cache_index, uint64_t cache_block);
+    uint64_t read_request(uint64_t address, uint64_t cache_index, uint64_t cache_block);
 
     // Función para manejar una solicitud de escritura en el bus
     void write_request(uint64_t address, uint64_t data, uint64_t cache_index, uint64_t cache_block);

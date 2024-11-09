@@ -26,9 +26,8 @@ void core::load(int reg, uint64_t addr) {
 
 // Función para almacenar datos de un registro en RAM
 void core::store(int reg, uint64_t cache_block, uint64_t data) {
-    uint64_t addr = cache_block ;  
+    //uint64_t addr = core_cache.addresses[cache_block];  
     core_cache.data[cache_block] = data;
-    memory.memory[addr] = registers[reg];
 }
 
 // Incrementar el valor en un registro 
