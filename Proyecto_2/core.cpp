@@ -1,33 +1,15 @@
 #include "core.h"
 
 // Función para cargar datos desde RAM a un registro
-void core::load(int reg, uint64_t addr) {
-    int cache_block = addr % 8;  // Determinar el bloque de cache
-    uint64_t data = 0;
-
-    if(core_cache.moesi_state[cache_block] == "E"){
-        data = core_cache.data[cache_block];
-    }
-    else if(core_cache.moesi_state[cache_block] == "O"){
-        data = core_cache.data[cache_block];
-    }
-    else if(core_cache.moesi_state[cache_block] == "M"){
-
-    }
-    else if(core_cache.moesi_state[cache_block] == "S"){
-
-    }
-    else if(core_cache.moesi_state[cache_block] == "I"){
-
-    }
-
-    registers[reg] = data;
+uint64_t core::load(int block, uint64_t addr, bus bus) {
+    //int cache_block = addr % 8;  // Determinar el bloque de cache
+    uint64_t data = core_cache.read(block, addr, bus);
+    return data;
 }
 
 // Función para almacenar datos de un registro en RAM
-void core::store(int reg, uint64_t cache_block, uint64_t data) {
-    //uint64_t addr = core_cache.addresses[cache_block];  
-    core_cache.data[cache_block] = data;
+void core::store(int block, uint64_t addr, uint64_t data, bus bus) {   
+    core_cache.write(block, addr, data, bus);
 }
 
 // Incrementar el valor en un registro 

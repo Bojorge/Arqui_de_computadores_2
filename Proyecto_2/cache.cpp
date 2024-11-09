@@ -1,4 +1,5 @@
 #include "cache.h"
+#include "bus.h"
 
 // Constructor
 cache::cache() {
@@ -11,7 +12,7 @@ cache::cache() {
     invalidations = 0;
 }
 
-void cache::read(int block, uint64_t addr,  bus bus) {
+uint64_t cache::read(int block, uint64_t addr,  bus bus) {
     if (moesi_state[block] == "I") {  // Si el bloque está en estado inválido
         cache_misses++;
 
@@ -21,6 +22,11 @@ void cache::read(int block, uint64_t addr,  bus bus) {
         data[block] = data_m;  // Carga el dato desde la memoria
         bus.read_requests++;
         bus.data_transmitted += 64;  // Se transmiten 64 bits
+
+        return data_m;
+    }
+    else {
+        return data[block];
     }
 }
 
@@ -36,8 +42,12 @@ void cache::write(int block, uint64_t addr, uint64_t data, bus bus) {
 
 // Imprimir el estado de cada bloque en la cache
 void cache::print_cache_state(const std::string &core_name) {
-    std::cout << "Estado de la cache del " << core_name << ":\n";
+    std::cout << "\n \n ****** Estado de la cache del " << core_name << " ****** \n";
     for (int i = 0; i < 8; ++i) {
-        std::cout << "Bloque " << i << " - MOESI: " << moesi_state[i] << "\n";
+        std::cout << "\n------------------------------------------\n";
+        std::cout << "Bloque " << i << "\n";
+        std::cout << "Estado MOESI " << moesi_state[i] << "\n";
+        std::cout << "Direccion RAM " << addresses[i] << "\n";
+        std::cout << "Dato " << data[i] << "\n";
     }
 }

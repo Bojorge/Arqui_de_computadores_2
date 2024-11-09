@@ -5,8 +5,9 @@
 #include <array>
 #include <string>
 #include <iostream>
-#include "ram.h" 
-#include "bus.h"
+//#include "bus.h"
+
+struct bus;
 
 struct cache {
     uint64_t index = 0;                       // indice para distinguir entre caches
@@ -20,7 +21,7 @@ struct cache {
     // Constructor
     cache();
 
-    void read(int block, uint64_t addr, bus bus);
+    uint64_t read(int block, uint64_t addr, bus bus);
     void write(int block, uint64_t addr, uint64_t data, bus bus);
 
     // Función para imprimir el estado de cada bloque en la cache

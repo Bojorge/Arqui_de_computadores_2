@@ -13,11 +13,11 @@ struct core {
     cache core_cache;                         // Cada core tiene su propia memoria cache
     std::array<uint64_t, 4> registers;        // 4 registros de 64 bits: REG0, REG1, REG2, REG3
 
-    // Función para cargar datos desde RAM a un registro
-    void load(int reg, uint64_t addr);
+    // Función para cargar datos desde cache o RAM en caso de un miss
+    uint64_t load(int block, uint64_t addr, bus bus);
 
-    // Función para almacenar datos de un registro en RAM
-    void store(int reg, uint64_t addr, uint64_t data);
+    // Función para almacenar datos en cache
+    void store(int block, uint64_t addr, uint64_t data, bus bus);
 
     // Incrementar el valor en un registro 
     void inc(int reg);
