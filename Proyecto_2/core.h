@@ -5,9 +5,9 @@
 #include <array>
 #include <string>
 #include "cache.h"
-#include "ram.h"
-#include "bus.h"
 #include "instructions_memory.h"
+
+struct bus;
 
 struct core {
     cache core_cache;                         // Cada core tiene su propia memoria cache

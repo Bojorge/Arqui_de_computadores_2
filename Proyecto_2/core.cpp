@@ -1,8 +1,8 @@
 #include "core.h"
+#include "bus.h"
 
 // Función para cargar datos desde RAM a un registro
 uint64_t core::load(int block, uint64_t addr, bus bus) {
-    //int cache_block = addr % 8;  // Determinar el bloque de cache
     uint64_t data = core_cache.read(block, addr, bus);
     return data;
 }

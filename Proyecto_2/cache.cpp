@@ -13,11 +13,13 @@ cache::cache() {
 }
 
 uint64_t cache::read(int block, uint64_t addr,  bus bus) {
+
     if (moesi_state[block] == "I") {  // Si el bloque está en estado inválido
         cache_misses++;
 
         uint64_t data_m = bus.read_request(addr, index, block);
 
+        addresses[block] = addr;
         moesi_state[block] = "S";  // Cambia el estado a compartido después de cargar
         data[block] = data_m;  // Carga el dato desde la memoria
         bus.read_requests++;

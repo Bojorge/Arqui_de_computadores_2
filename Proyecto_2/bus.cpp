@@ -2,10 +2,13 @@
 #include <iostream>
 
 // Constructor del bus
-bus::bus() {
-    // Inicializar puertos de dirección y datos a cero
-    address_port.fill(0);
-    data_port.fill(0);
+bus::bus(core core0, core core1, core core2, core core3, RAM& ram)
+    : address_port{0}, data_port{0}, ram(ram) {
+    
+    connected_caches[0] = core0.core_cache;
+    connected_caches[1] = core1.core_cache;
+    connected_caches[2] = core2.core_cache;
+    connected_caches[3] = core3.core_cache;
     read_requests = 0;
     write_requests = 0;
     invalidations = 0;
@@ -17,12 +20,15 @@ uint64_t bus::read_request(uint64_t address, uint64_t cache_index, uint64_t cach
     read_requests++;
     // Verificar si el dato está en el puerto de direcciones
     if (address < 256) {
-        uint64_t data = 0;
+        uint64_t data = ram.read(address);
+        data_port[cache_index] = data;
+        address_port[cache_index] = address;
         update_moesi_state(address, data, cache_index, cache_block);
-        return data_port[address];
+        return data;
         std::cout << "Bus: Lectura completada en la direccion " << address << " con el dato " << data_port[address] << std::endl;
     } else {
         std::cout << "Bus: Error en la solicitud de lectura. Dirección no encontrada " << address << std::endl;
+        return 0;
     }
 }
 

@@ -3,7 +3,6 @@
 
 #include <array>
 #include <cstdint>
-#include "bus.h"
 
 struct RAM {
     std::array<uint64_t, 256> memory;  // Memoria del sistema con 256 posiciones de 64 bits
