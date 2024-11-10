@@ -5,7 +5,6 @@
 #include <array>
 #include <string>
 #include <iostream>
-//#include "bus.h"
 
 struct bus;
 
@@ -18,8 +17,9 @@ struct cache {
     int cache_misses = 0;
     int invalidations = 0;
 
+    cache() : index(0) {}
     // Constructor
-    cache();
+    cache(uint64_t index);
 
     uint64_t read(int block, uint64_t addr, bus bus);
     void write(int block, uint64_t addr, uint64_t data, bus bus);

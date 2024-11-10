@@ -14,8 +14,13 @@
 struct bus {
     std::array<uint64_t, 256> address_port;  // Puerto de direcciones (conectado a RAM y cache de cada core)
     std::array<uint64_t, 256> data_port;     // Puerto de datos (conectado a RAM y cache de cada core)
-    std::array<cache, 4> connected_caches;   // Puerto compartido para estados MOESI entre caches de los cores
-    RAM& ram;
+    std::vector<cache> connected_caches;   // Puerto compartido para estados MOESI entre caches de los cores
+    
+    core coreA;
+    core coreB;
+    core coreC;
+    core coreD;
+    RAM ram;
 
     // Contadores para eventos del bus
     int read_requests = 0;
@@ -24,7 +29,7 @@ struct bus {
     uint64_t data_transmitted = 0;
 
     // Constructor
-    bus(core core0, core core1, core core2, core core3, RAM& ram);
+    bus(core& core0, core& core1, core& core2, core& core3, RAM& ram);
 
     // Función para manejar una solicitud de lectura en el bus
     uint64_t read_request(uint64_t address, uint64_t cache_index, uint64_t cache_block);

@@ -11,7 +11,10 @@ struct bus;
 
 struct core {
     cache core_cache;                         // Cada core tiene su propia memoria cache
-    std::array<uint64_t, 4> registers;        // 4 registros de 64 bits: REG0, REG1, REG2, REG3
+    std::array<uint64_t, 4> registers = {0};  // 4 registros de 64 bits, inicializados a 0
+
+    // Constructor que inicializa el índice de la cache
+    core(int index) : core_cache(index) {}
 
     // Función para cargar datos desde cache o RAM en caso de un miss
     uint64_t load(int block, uint64_t addr, bus bus);

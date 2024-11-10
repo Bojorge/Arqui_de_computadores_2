@@ -2,21 +2,21 @@
 #include "bus.h"
 
 // Constructor
-cache::cache() {
-    index = 0;
-    data.fill(0);
-    addresses.fill(0);
-    moesi_state.fill("I");  // Inicializa todos los bloques en estado "I" (Inválido)
-    bus_access_enabled = true;
-    cache_misses = 0;
-    invalidations = 0;
+cache::cache(uint64_t index) {
+    this->index = index;             // Asignar el índice recibido como parámetro
+    data.fill(0);                    // Inicializa los datos con 0
+    addresses.fill(0);               // Inicializa las direcciones con 0
+    moesi_state.fill("I");           // Inicializa el estado MOESI como "I" (Invalid)
+    bus_access_enabled = true;       // Habilita el acceso al bus
+    cache_misses = 0;                // Inicializa los fallos de cache en 0
+    invalidations = 0;               // Inicializa las invalidaciones en 0
 }
 
 uint64_t cache::read(int block, uint64_t addr,  bus bus) {
 
     if (moesi_state[block] == "I") {  // Si el bloque está en estado inválido
         cache_misses++;
-
+        
         uint64_t data_m = bus.read_request(addr, index, block);
 
         addresses[block] = addr;

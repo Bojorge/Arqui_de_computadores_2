@@ -4,22 +4,23 @@
 
 int main() {
     RAM ram;
-    core core0, core1, core2, core3;
+    core core0(0); 
+    core core1(1); 
+    core core2(2);
+    core core3(3);
     bus system_bus(core0, core1, core2, core3, ram);
 
-    uint64_t address = 10; 
-    uint64_t block = 0;
+    uint64_t address = 66; 
+    uint64_t block = 2;
     uint64_t data = 369;
-
-    core0.core_cache.print_cache_state("Core 0");
     
     std::cout << "\n------------------------------------------\n";
 
     // Primera lectura en Core A (debe ir a estado Exclusive E)
-    uint64_t loaded_data = core0.load(block, address, system_bus);
+    uint64_t loaded_data = core2.load(block, address, system_bus);
     std::cout << "Dato leido de cache (si hay miss va a memoria): " << loaded_data << "\n";
     // Imprimir estados para verificar el cumplimiento del protocolo
-    core0.core_cache.print_cache_state("Core 0");
+    core2.core_cache.print_cache_state("Core 0");
 
     std::cout << "\n------------------------------------------\n";
     
