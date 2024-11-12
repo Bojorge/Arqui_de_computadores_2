@@ -27,6 +27,7 @@ int main() {
     // Imprimir estados para verificar el cumplimiento del protocolo
     core0.core_cache.print_cache_state("Core 0");
     core1.core_cache.print_cache_state("Core 1");
+    core2.core_cache.print_cache_state("Core 2");
     core3.core_cache.print_cache_state("Core 3");
 
     return 0;

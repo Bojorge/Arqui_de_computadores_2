@@ -105,8 +105,11 @@ uint64_t bus::read_request(uint64_t address, uint64_t cache_index, uint64_t cach
 
 // Función para manejar una solicitud de escritura en el bus
 void bus::write_request(uint64_t address, uint64_t data, uint64_t cache_index, uint64_t cache_block) {
-    if (connected_caches[cache_index]->moesi_state[cache_block] == "I" || connected_caches[cache_index]->moesi_state[cache_block] == "S") {
+    if (connected_caches[cache_index]->moesi_state[cache_block] == "S") {
         connected_caches[cache_index]->moesi_state[cache_block] = "M";  
+    }
+    else if (connected_caches[cache_index]->moesi_state[cache_block] == "I"){
+        connected_caches[cache_index]->moesi_state[cache_block] = "O"; 
     }
     connected_caches[cache_index]->data[cache_block] = data;  // Guardar en cache
 
@@ -121,6 +124,9 @@ void bus::write_request(uint64_t address, uint64_t data, uint64_t cache_index, u
                 for (int block = 0; block < 8; ++block) {
                     if (connected_caches[i]->addresses[block] == address) {
                         connected_caches[i]->moesi_state[block] = "I";
+                        
+                        //connected_caches[i]->moesi_state[block] = "S";
+                        //connected_caches[i]->data[block] = data;
                     }
                 }
             }
