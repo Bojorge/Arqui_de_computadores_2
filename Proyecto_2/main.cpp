@@ -4,11 +4,13 @@
 #include <thread>
 
 int main() {
+    bool moesi_protocol = true;
+    
     RAM ram;
-    core core0(0); 
-    core core1(1); 
-    core core2(2);
-    core core3(3);
+    core core0(0, moesi_protocol); 
+    core core1(1, moesi_protocol); 
+    core core2(2, moesi_protocol);
+    core core3(3, moesi_protocol);
     bus bus(core0, core1, core2, core3, ram);
     
     // Crear hilos para ejecutar el método start en cada core
