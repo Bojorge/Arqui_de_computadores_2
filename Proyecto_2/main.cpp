@@ -13,7 +13,6 @@ int main() {
     core core3(3, moesi_protocol);
     bus bus(core0, core1, core2, core3, ram);
     
-    
     // Crear hilos para ejecutar el método start en cada core
     std::vector<std::thread> threads;
     threads.emplace_back(&core::start, &core0, std::ref(bus));
